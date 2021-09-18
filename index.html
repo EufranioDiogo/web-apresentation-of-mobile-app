@@ -7,6 +7,10 @@
   <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="CSS/universal.css">
+  <link rel="stylesheet" href="CSS/index.css">
+  <script src="https://kit.fontawesome.com/5c7edfd842.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <title>Frontend Mentor | [Challenge Name Here]</title>
 
@@ -28,69 +32,57 @@
     <div class="mobile-container">
       <div class="mobile-container--inner-container">
         <div class="mobile-header">
+          <div class="mobile-header--elements-container">
+            <i class="fas fa-chevron-left arrow"></i>
 
+            <div class="mobile-header--element-profile">
+              <img src="images/avatar.jpg" alt="" class="mobile-header--user-photo">
+
+              <div class="element-profile-container">
+                <h2 class="element-profile-user-name">
+                  Samuel Green
+                </h2>
+                <span class="element-profile-user-actual-status">Avaliable to Walk</span>
+              </div>
+            </div>
+
+            <i class="fas fa-ellipsis-v options-button"></i>
+          </div>
         </div>
 
         <div class="mobile-body-container">
-          <div class="mobile-msg-container other-user">
-            <p class="mobile-msg-text">
-              That sounds great. I’d be happy with that.
-            </p>
-          </div>
-          <div class="mobile-msg-container other-user">
-            <p class="mobile-msg-text">
-              Could you send over some pictures of your dog, please?
-            </p>
+          <div class="mobile-message-container">
+
+            <div class="mobile-msg-container" v-for="message in messages"
+              :class="{'other-user' : message.mine == false, 'my-user' : message.mine == true, 'img-container' : message.photos != undefined,
+              promo : message.promo == true }">
+              <p v-if="message.text != 'undefined' && message.promo == false" class="mobile-msg-text">
+                {{message.text}}
+              </p>
+              <img v-if="message.photos != 'undefined'" v-for="photo in message.photos" :src="photo"
+                class="image-element" alt="photo">
+
+              <input v-if="message.promo == true" type="checkbox" class="mobile-input-radio">
+              <p v-if="message.promo == true" class="mobile-msg-text">
+                {{message.text}}
+              </p>
+              <h2 v-if="message.promo == true" class="mobile-h2-price">${{message.price}}</h2>
+
+            </div>
+
           </div>
 
+          <div class="mobile-input-container">
+            <input type="text" v-model="message" class="mobile-input" @change.enter.trim ="addNewNormalMessage" placeholder="Type a message…">
 
-          <div class="mobile-msg-container my-user img-container">
-            <img src="./images/dog-image-1.jpg" alt="Dog 1">
-            <img src="./images/dog-image-2.jpg" alt="Dog 2">
-            <img src="./images/dog-image-3.jpg" alt="Dog 3">
-          </div>
-
-          <div class="mobile-msg-container my-user">
-            <p class="mobile-msg-text">
-              Here are a few pictures. She’s a happy girl!
-            </p>
-          </div>
-
-          <div class="mobile-msg-container my-user">
-            <p class="mobile-msg-text">
-              Can you make it?
-            </p>
-          </div>
-
-
-          <div class="mobile-msg-container other-user">
-            <p class="mobile-msg-text">
-              She looks so happy! The time we discussed works. How long shall I take her out for?
-            </p>
-          </div>
-          <div class="mobile-msg-container other-user promo">
-            <input type="checkbox" class="mobile-input-radio">
-            <p class="mobile-msg-text">
-              30 minute walk
-            </p>
-            <h2 class="mobile-h2-price">$29</h2>
-          </div>
-          <div class="mobile-msg-container other-user promo">
-            <input type="checkbox" class="mobile-input-radio">
-            <p class="mobile-msg-text">
-              1 hour walk
-            </p>
-            <h2 class="mobile-h2-price">$49</h2>
+            <button class="mobile-send-button">
+              <i class="fas fa-chevron-right arrow"></i>
+            </button>
           </div>
         </div>
 
-        <div class="mobile-input-container">
-          <input type="text" class="mobile-input" placeholder="Type a message…">
 
-          <button class="mobile-send-button">
-            <i></i>
-          </button>
-        </div>
+
       </div>
     </div>
 
@@ -105,9 +97,8 @@
         your walker and book again all through the chat.
       </p>
     </div>
-    Samuel Green
-    Available to Walkers
   </div>
+  <script src="./JS/index.js"></script>
 </body>
 
 </html>

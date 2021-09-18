@@ -1,0 +1,237 @@
+.app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.app::before {
+    content: '';
+    height: 90vh;
+    width: 25.5vw;
+    border-radius: 0 0 100rem 100rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(rgb(174, 0, 255), rgb(234, 0, 255));
+    z-index: -1;
+}
+
+.app::after {
+    content: '';
+    height: 90vh;
+    width: 25.5vw;
+    border-radius: 100rem 100rem 0 0;
+    position: absolute;
+    bottom: 0;
+    right: -15%;
+    background: linear-gradient(#dbdbdb6e, #dbdbdb6e);
+    z-index: -1;
+}
+
+.mobile-container {
+    display: flex;
+    width: 32.5rem;
+    height: 64rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 3rem;
+    margin-right: 3rem;
+    box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.061);
+    position: relative;
+}
+
+.mobile-container--inner-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.mobile-header {
+    background: linear-gradient(to right, rgb(174, 0, 255), rgb(234, 0, 255));
+    padding: 3rem 1rem 1rem 1rem;
+    border-radius: 2rem 2rem 0.5rem 0.5rem;
+    position: relative;
+    width: 100%;
+}
+.mobile-header::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3.25rem;
+    border-radius: 0 0 2rem 2rem;
+    background-color: white;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.mobile-header--elements-container {
+    display: flex;
+    align-items: center;
+}
+.mobile-header--element-profile {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    margin-left: 1rem;
+}
+.mobile-header--user-photo {
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: 0.2rem solid #fff;
+}
+.options-button {
+    position: absolute;
+    right: 5%;
+    color: #fff;
+}
+.mobile-body-container {
+    background-color: rgb(244, 244, 244);
+    padding: 1rem 0 2rem 0;
+    position: relative;
+    border-radius: 0 0 2rem 2rem;
+    height: 90%;
+    overflow: overlay;
+}
+.mobile-message-container {
+    display: flex;
+    flex-direction:column;
+    overflow-y: auto;
+    height: 92.5%;
+}
+.mobile-msg-container {
+    padding: 1rem;
+    border-radius: 1rem;
+    max-width: 62.5%;
+    margin: 0.5rem;
+}
+.other-user {
+    align-items: flex-start;
+    background-color:rgba(174, 0, 255, 0.11);
+    color:rgb(129, 1, 184)
+}
+.my-user {
+    align-self: flex-end;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem #0001;
+}
+.img-container {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.mobile-msg-text {
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+.mobile-input-radio {
+    border: none;
+    outline: none;
+}
+
+.promo {
+    background: linear-gradient(to left, rgb(174, 0, 255), rgb(234, 0, 255));
+    display: flex;
+    color: white;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.mobile-h2-price {
+    margin-left: auto;
+}
+
+.img-container {
+    margin-bottom: 0rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.image-element {
+    width: 5.2rem;
+    height: 5.2rem;
+    border-radius: 1rem;
+    margin: 0 0.1rem;
+}
+
+.mobile-input-container {
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    position: absolute;
+    margin-top: 1rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+}
+.mobile-input {
+    border: none;
+    outline: none;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    width: 90%;
+    font-size: 1.2rem;
+    color: #555;
+}
+.mobile-send-button {
+    margin-left: auto;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    background-color: #222;
+    height: 2.8rem;
+    width: 2.8rem;
+    border: none;
+}
+.arrow {
+    color: #fff;
+}
+
+.content-container {
+    width: 35%;
+    margin-left: 5rem;
+}
+
+.content-container--title {
+    font-size: 4.2rem;
+    color: #21005f;
+    margin-bottom: 2rem;
+}
+.content-container--text {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    color: #424242;
+}
+
+@media screen and (max-width: 765px) {
+    .app {
+        flex-direction: column;
+        align-items: center;
+        
+        overflow-y: auto;
+    }
+    .mobile-container{
+        margin: 0 auto;
+        margin-top: 12.5rem;
+        position: relative;
+    }
+    .app::before {
+        height: 60%;
+        width: 60vw;
+    }
+    .app::after {
+        display: none;
+    }
+    .content-container  {
+        margin-left: none;
+        width: 85%;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 5rem;
+        position: relative;
+        display: block;
+        margin-bottom: 10rem;
+    }
+}
