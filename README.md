@@ -36,7 +36,7 @@ Thanks to see this front-end coding challenge.
 Thanks front-end mentor.
 
 
-<h2 id="english">Bem-vindo! 👋</h2>
+<h2 id="portugues">Bem-vindo! 👋</h2>
 
 **Para vc fazer este desafio, vc precisa de fortes conhecimentos em HTML e CSS**
 Eu fiz esse desafio porque eu estava tentando provar para mim que eu consigo criar uma apresentação na web de um app mobile com o meu conhecimento em `HTML` e `CSS`.
